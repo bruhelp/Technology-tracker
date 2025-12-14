@@ -1,0 +1,34 @@
+:root {
+  --pink: #f18daf;
+  --light: #a6dfe6;
+  --turquoise: #64cacc;
+  --blue: #4d89a3;
+  --grey: #767c8a;
+  --marengo: #4c5467;
+}
+
+.quick-actions {
+  margin: 25px 0 20px 20px;
+  display: flex;
+}
+
+.quick-actions button {
+  width: 26px;
+  height: 26px;
+  margin: 4px;
+  background-color: var(--grey);
+  border-radius: 5px;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.5s ease;
+}
+
+.quick-actions button:hover {
+  background-color: var(--blue);
+}
+
+.quick-actions button.active {
+  background-color: var(--turquoise);
+}

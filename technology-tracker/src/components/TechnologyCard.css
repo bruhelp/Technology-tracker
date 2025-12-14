@@ -1,0 +1,69 @@
+:root {
+  --pink: #f18daf;
+  --light: #a6dfe6;
+  --turquoise: #64cacc;
+  --blue: #4d89a3;
+  --grey: #767c8a;
+  --marengo: #4c5467;
+}
+
+/* стили для компонента TechnologyCard */
+.technology-card {
+  display: flex;
+  gap: 20px;
+  background-color: white;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 20px;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 2s;
+  transition: background-color 0.5s ease;
+  color: white;
+}
+
+.technology-card:hover {
+  transform: translateY(-3px);
+}
+
+.technology-card h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.5em;
+}
+
+.technology-card p {
+  margin-top: 10px;
+  font-size: 0.9em;
+}
+
+.status {
+  font-weight: bold;
+}
+
+.status button {
+  margin: 0 0 0 10px;
+  padding: 0;
+  width: 29px;
+  height: 29px;
+  background-color: var(--turquoise);
+  border-left: 6px solid var(--pink);
+  color: white;
+  border-radius: 5px;
+  border: 3px solid white;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* статусы */
+.completed {
+  background: var(--turquoise);
+}
+
+.in-progress {
+  background: var(--light);
+}
+
+.not-started {
+  background: white;
+  color: black;
+}
