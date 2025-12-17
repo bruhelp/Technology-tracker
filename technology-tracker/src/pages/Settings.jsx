@@ -128,7 +128,7 @@ function Settings({ onLogout }) {
       <div className="settings-section">
         <h2>Профиль</h2>
         <div className="user-profile">
-          <img className="user-avatar" src="/Miku_screen.jpg" alt="Аватар пользователя"></img>
+          <img className="user-avatar" src={`${import.meta.env.BASE_URL}avatar.png`} alt="Avatar"></img>
           <div className="user-details">
             <p><strong>Имя:</strong> {username}</p>
             <p><strong>Всего технологий:</strong> {technologies.length}</p>
