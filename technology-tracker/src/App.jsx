@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 
 // Импорт компонентов
@@ -22,12 +22,10 @@ import TechnologyNotes from './components/TechnologyNotes';
 import SearchBox from './components/SearchBox';
 import useTechnologies from './components/useTechnologies';
 
-// === ШАГ 1 И 2 ИЗ ПДФ: ИМПОРТ MUI И ПРОВАЙДЕРОВ ===
 import { AppThemeProvider } from './theme/AppThemeProvider';
 import { NotificationProvider } from './context/NotificationContext';
 import { Container, Box } from '@mui/material';
 
-// Главная страница со старым функционалом
 function HomePage() {
   const {
     visibleTechnologies,
