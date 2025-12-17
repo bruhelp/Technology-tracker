@@ -1,0 +1,47 @@
+:root {
+    --pink: #f18daf;
+    --light: #a6dfe6;
+    --turquoise: #64cacc;
+    --blue: #4d89a3;
+    --grey: #767c8a;
+    --marengo: #4c5467;
+}
+
+.search-box {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    padding: 8px 12px;
+    background-color: var(--light);
+    border-radius: 12px;
+    max-width: 500px;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 2px solid var(--blue);
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.search-box input::placeholder {
+    font-size: 14px;
+    color: var(--grey);
+    font-style: italic;
+}
+
+.search-box input:focus {
+    border-color: var(--pink);
+    box-shadow: 0 0 4px var(--pink);
+}
+
+.search-box span {
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--blue);
+}

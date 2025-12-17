@@ -1,12 +1,14 @@
-import './TechnologyCard.css';
+import './styles/TechnologyCard.css';
 
-function TechnologyCard({ title, description, status, className, onSwitch }) {
-    
+// Принимаем объект technology и функцию onDelete
+function TechnologyCard({ technology, onStatusUpdate, onDelete }) {
+    const { title, description, status, deadline } = technology;
+
     const statusClass = {
         'completed': 'technology-card completed',
         'in-progress': 'technology-card in-progress',
         'not-started': 'technology-card not-started'
-    }[status];
+    }[status] || 'technology-card';
 
     const statusLabel = {
         'completed': 'Завершено',
@@ -16,13 +18,32 @@ function TechnologyCard({ title, description, status, className, onSwitch }) {
 
     return (
         <div className={statusClass}>
-            <h3>{title}</h3>
+            <div className="tech-card-header">
+                <h3>{title}</h3>
+            </div>
+
             <p>{description}</p>
+
+            {deadline && (
+                <div>
+                    <p>Дедлайн: {new Date(deadline).toLocaleDateString()}</p>
+                </div>
+            )}
 
             <div className="status">
                 {statusLabel}
-                <button title="Смена статуса" onClick={onSwitch}>↓</button>
+                <button title="Смена статуса" onClick={() => onStatusUpdate(technology.id)}>↓</button>
             </div>
+
+            <button
+                className="delete-btn"
+                onClick={(e) => {
+                    e.stopPropagation();
+                    onDelete();
+                }}
+                title="Удалить технологию"
+            >×
+            </button>
         </div>
     );
 }

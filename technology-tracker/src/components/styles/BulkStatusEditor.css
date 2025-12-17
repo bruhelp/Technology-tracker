@@ -1,0 +1,105 @@
+.bulk-editor-container {
+  background: #f9fafb; 
+  padding: 20px;
+  border-radius: 12px;
+  border-left: 4px solid var(--blue);
+}
+
+.bulk-editor-container h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: var(--marengo);
+  font-size: 18px;
+}
+
+.bulk-controls {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.bulk-controls select {
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: white;
+  color: var(--marengo);
+  font-size: 14px;
+  flex-grow: 1;
+  max-width: 200px;
+  cursor: pointer;
+}
+
+.bulk-controls select:focus {
+  outline: none;
+  border-color: var(--blue);
+}
+
+/* Стили кнопок заимствованы из Settings.css через классы .action-button */
+.bulk-controls button {
+  white-space: nowrap;
+}
+
+/* Список чекбоксов */
+.tech-checkbox-list {
+  max-height: 250px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 5px;
+}
+
+/* Скроллбар для списка */
+.tech-checkbox-list::-webkit-scrollbar {
+  width: 6px;
+}
+.tech-checkbox-list::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+.tech-checkbox-list::-webkit-scrollbar-thumb {
+  background: var(--grey);
+  border-radius: 3px;
+}
+
+.checkbox-item {
+  padding: 8px 12px;
+  border-bottom: 1px solid #f5f5f5;
+  transition: background-color 0.2s;
+}
+
+.checkbox-item:last-child {
+  border-bottom: none;
+}
+
+.checkbox-item:hover {
+  background-color: #f0f8ff; 
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-right: 12px;
+  accent-color: var(--blue); /* Цвет галочки */
+  cursor: pointer;
+}
+
+.tech-title {
+  font-weight: 600;
+  color: var(--marengo);
+  margin-right: 8px;
+}
+
+.tech-status-text {
+  font-size: 13px;
+  color: var(--grey);
+}

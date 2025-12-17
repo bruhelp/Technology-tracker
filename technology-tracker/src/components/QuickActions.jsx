@@ -1,46 +1,84 @@
-import './QuickActions.css'
+import { useState } from 'react';
+import Modal from './Modal';
+import './styles/QuickActions.css';
 
-function QuickActions({ 
-    filter, 
-    onClickCompleted, 
-    onClickDeleted, 
-    onClickRandom, 
-    onClickShowAll, 
-    onClickShowNotStarted, 
-    onClickShowInProgress, 
-    onClickShowCompleted 
+function QuickActions({
+  technologies,
+
+  filter,
+  onMarkAllCompleted,
+  onResetAll,
+  onRandomTech,
+
+  onShowAll,
+  onShowNotStarted,
+  onShowInProgress,
+  onShowCompleted,
 }) {
-    return (
-        <div className="quick-actions">
-            <button title="Отметить все как выполненные" onClick={onClickCompleted}>✿</button>
-            <button title="Сбросить все статусы" onClick={onClickDeleted}>✖</button>
-            <button title="Случайный выбор следующей технологии" onClick={onClickRandom}>➤</button>
-            
-            {/* Фильтры */}
-            <button 
-            className={filter === 'all' ? 'active' : ''} 
-            title="Все" 
-            onClick={onClickShowAll}>❤
-            </button>
+  const [showExportModal, setShowExportModal] = useState(false);
 
-            <button 
-            className={filter === 'not-started' ? 'active' : ''} 
-            title="Не начатые" 
-            onClick={onClickShowNotStarted}>𒊹
-            </button>
+  const handleExport = () => {
+    const data = {
+      exportedAt: new Date().toISOString(),
+      technologies,
+    };
 
-            <button 
-            className={filter === 'in-progress' ? 'active' : ''} 
-            title="В процессе" 
-            onClick={onClickShowInProgress}>⧖
-            </button>
-
-            <button className={filter === 'completed' ? 'active' : ''} 
-            title="Выполненные" 
-            onClick={onClickShowCompleted}>✓
-            </button>
-        </div>
+    console.log(
+      'Данные для экспорта:',
+      JSON.stringify(data, null, 2)
     );
+
+    setShowExportModal(true);
+  };
+
+  return (
+    <div className="quick-actions">
+      {/* Основные действия */}
+      <button title="Отметить все как выполненные" onClick={onMarkAllCompleted}>✿</button>
+      <button title="Сбросить все статусы" onClick={onResetAll}>✖</button>
+      <button title="Случайный выбор следующей технологии" onClick={onRandomTech}>➤</button>
+      <button title="Экспорт данных" onClick={handleExport}>⤴</button>
+
+      {/* Фильтры */}
+      <button
+        className={filter === 'all' ? 'active' : ''}
+        title="Все"
+        onClick={onShowAll}
+      >❤
+      </button>
+
+      <button
+        className={filter === 'not-started' ? 'active' : ''}
+        title="Не начатые"
+        onClick={onShowNotStarted}
+      >𒊹
+      </button>
+
+      <button
+        className={filter === 'in-progress' ? 'active' : ''}
+        title="В процессе"
+        onClick={onShowInProgress}
+      >⧖
+      </button>
+
+      <button
+        className={filter === 'completed' ? 'active' : ''}
+        title="Выполненные"
+        onClick={onShowCompleted}
+      >✓
+      </button>
+
+      {/* Модалка экспорта */}
+      <Modal
+        isOpen={showExportModal}
+        onClose={() => setShowExportModal(false)}
+        title="Экспорт данных"
+      >
+        <p>Данные успешно подготовлены для экспорта!</p>
+        <p>Проверьте консоль разработчика.</p>
+      </Modal>
+    </div>
+  );
 }
 
 export default QuickActions;

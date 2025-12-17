@@ -7,7 +7,6 @@
   --marengo: #4c5467;
 }
 
-/* стили для компонента TechnologyCard */
 .technology-card {
   display: flex;
   gap: 20px;
@@ -19,6 +18,7 @@
   align-items: center;
   transition: transform 2s;
   transition: background-color 0.5s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   color: white;
 }
 
@@ -52,6 +52,11 @@
   border: 3px solid white;
   text-align: center;
   cursor: pointer;
+  transition: background-color 0.5s ease;
+}
+
+.status button:hover {
+  background-color: var(--blue);
 }
 
 /* статусы */
@@ -66,4 +71,31 @@
 .not-started {
   background: white;
   color: black;
+}
+
+.tech-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.delete-btn {
+  background: transparent;
+  border: none;
+  color: var(--marengo);
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 4px;
+  margin-left: 10px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+.delete-btn:hover {
+  color: var(--pink); 
 }
